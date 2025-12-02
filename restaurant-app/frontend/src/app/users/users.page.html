@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Users (Customers)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- FORM -->
+  <ion-item>
+    <ion-label position="stacked">Username</ion-label>
+    <ion-input [(ngModel)]="uname" name="uname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Role</ion-label>
+    <ion-input [(ngModel)]="role" name="role"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="insertUser()">Add User</ion-button>
+  <ion-button expand="block" color="medium" (click)="updateUser()">Update User</ion-button>
+
+  <p class="ion-margin-top">{{ outMsg }}</p>
+
+  <!-- LIST -->
+  <ion-list>
+    <ion-item *ngFor="let u of outRec">
+      <ion-label>
+        <h2>{{ u.uname }} ({{ u.role }})</h2>
+        <p>{{ u.email }}</p>
+      </ion-label>
+
+      <ion-button size="small" slot="end" (click)="editUser(u)">
+        Edit
+      </ion-button>
+
+      <ion-button size="small" color="danger" fill="outline" slot="end" (click)="deleteUser(u._id)">
+        Delete
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

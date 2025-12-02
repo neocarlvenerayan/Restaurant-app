@@ -6,7 +6,11 @@ import { OrdersPage } from './orders/orders.page';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePage },
-  { path: 'orders', component: OrdersPage }
+  { path: 'orders', component: OrdersPage },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  }
 ];
 
 @NgModule({
