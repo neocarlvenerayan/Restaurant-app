@@ -1,0 +1,1 @@
+// menu-details module placeholder
